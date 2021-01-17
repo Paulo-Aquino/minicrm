@@ -7,6 +7,7 @@ use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use DataTables;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -128,5 +129,29 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('user.index')->with( 'success' , 'El usuario fue Eliminado.' );
+    }
+
+
+    public function profile(User $user)
+    {
+        $user = Auth::user();
+        return view('profile.edit',compact('user'));
+    }
+
+
+    public function updateProfile(ProfileUserRequest $request)
+    {   
+        $user = Auth::user();
+        $this->authorize('profile', $user);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->role = $request->input('role');
+
+        if($request->input('password'))
+            $user->password = bcrypt($request->input('password'));
+
+        $user->save();
+
+        return redirect()->route('user.index')->with( 'success' , 'El usuario fue actualizado.' );
     }
 }

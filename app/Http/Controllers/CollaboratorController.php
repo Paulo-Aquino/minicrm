@@ -101,12 +101,12 @@ class CollaboratorController extends Controller
     public function update(CollaborateRequest $request,Collaborator $collaborator)
     {
         $this->authorize('update',$collaborator);
-        $collaborate->name = $request->input('name');
-        $collaborate->last_name = $request->input('last_name');
-        $collaborate->email = $request->input('email');
-        $collaborate->phone = $request->input('phone');
-        $collaborate->company_id = $request->input('company_id');
-        $collaborate->save();
+        $collaborator->name = $request->input('name');
+        $collaborator->last_name = $request->input('last_name');
+        $collaborator->email = $request->input('email');
+        $collaborator->phone = $request->input('phone');
+        $collaborator->company_id = $request->input('company_id');
+        $collaborator->save();
 
         return redirect()->route('collaborator.index')->with( 'success' , 'El colaborador fue actualizado.' );
     }

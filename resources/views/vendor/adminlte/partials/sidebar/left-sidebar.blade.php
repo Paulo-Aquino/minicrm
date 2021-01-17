@@ -9,6 +9,7 @@
 
     {{-- Sidebar menu --}}
     <div class="sidebar">
+        <h5 style="color:white;">Rol: {{Auth::user()->role}}</h5>
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column {{ config('adminlte.classes_sidebar_nav', '') }}"
                 data-widget="treeview" role="menu"

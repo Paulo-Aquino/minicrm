@@ -15,6 +15,7 @@ El proyecto esta sobre laravel 8 utiliza como base de datos mysql MariaDB, es un
 * XML PHP Extension
 * Maria DB mysql
 * Composer
+* php.ini configurado para max_upload de 10MB
 
 >Pasos para instalar
 
@@ -23,7 +24,7 @@ El proyecto esta sobre laravel 8 utiliza como base de datos mysql MariaDB, es un
 3. composer install
 4. cp .env.example .env
 5. php artisan key:generate
-6. Crear database on MySQL
+6. Crear database en MySQL
 7. Configurar las credenciaes de base de datos en el archivo .env
 8. php artisan migrate --seed
 9. php artisan storage:link

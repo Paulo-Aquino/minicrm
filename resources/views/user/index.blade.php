@@ -79,6 +79,7 @@
 @section('js')
 <script>
 
+var route_delete = '{{url('user')}}';
 
     $(document).ready(function() {
         $('#listado_1').DataTable({
